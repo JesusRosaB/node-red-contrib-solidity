@@ -1,0 +1,99 @@
+<script type="text/javascript">
+
+  RED.nodes.registerType('solidity-interaction', {
+    category: 'Solidity',
+    color: '#E8E4F3',
+    defaults: {
+      name: { value: undefined },
+      network: { value: undefined, required: true },
+      privatekey: { value: undefined, required: true },
+      abi: { value: undefined, required: true },
+      scaddress: { value: undefined, required: true },
+      scnamefunction: { value: undefined, required: true }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'solidity.svg',
+    align: 'left',
+    paletteLabel: 'solidity-interaction',
+    hasValue: true,
+    label: function() {
+      return this.name || 'Solidity Interaction';
+    }
+    
+
+  });
+</script>
+<style>
+  h4.section {
+    border-bottom: 1px solid #bbb;
+    margin: 1em 0em 1em 0em;
+  }
+
+  .input-info {
+    font-size: 12px;
+    padding-left: 104px;
+    font-style: italic;
+  }
+
+  .checkbox-info {
+    font-size: 12px;
+  }
+</style>
+<script type="text/x-red" data-template-name="solidity-interaction">
+
+    <h4 class="section">General</h4>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name [optional]</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    
+    <div class="form-row">
+      <label for="node-input-network"><i class="fa fa-arrows-h"></i> Network </label>
+      <select id="node-input-network">
+        <option value="ethereum(mainnet)" selected>Ethereum (Mainnet)</option>
+        <option value="ethereum(ropsten)">Ethereum (Ropsten)</option>
+        <option value="ethereum(goerli)">Ethereum (Goerli)</option>
+        <option value="ethereum(rinkeby)">Ethereum (Rinkeby)</option>
+        <option value="ethereum(kovan)">Ethereum (Kovan)</option>
+        <option value="bsc(mainnet)">Binance Smart Chain (Mainnet)</option>
+        <option value="bsc(testnet)">Binance Smart Chain (Testnet)</option>
+        <option value="polygon(mainnet)">Polygon (Mainnet)</option>
+        <option value="polygon(mumbai)">Polygon (Mumbai)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-privatekey"><i class="icon-tag"></i> Private Key</label>
+        <input type="password" id="node-input-privatekey" placeholder="Private Key">
+    </div>
+    <h4 class="section">Smart Contract</h4>
+    <div class="form-row">
+        <label for="node-input-abi"><i class="icon-tag"></i> Smart Contact ABI </label>
+        <input type="text" id="node-input-abi" placeholder="ABI">
+    </div>
+    <div class="form-row">
+        <label for="node-input-scaddress"><i class="icon-tag"></i> Smart Contact Address </label>
+        <input type="text" id="node-input-scaddress" placeholder="Address">
+    </div>
+
+    <h4 class="section">Smart Contract Function</h4>
+    <div class="form-row">
+        <label for="node-input-scnamefunction"><i class="icon-tag"></i> Function Name </label>
+        <input type="text" id="node-input-scnamefunction" placeholder="Function Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="solidity-interaction">
+  <p> Interaction process with a smart contract already deployed in a blockchain network.</p>
+  <ul>
+    <li><b>Input: </b>Data in JSON format with the necessary parameters to interact with the desired smart contract function. Note that not all smart contract functions need parameters.</li>
+    <li><b>Network: </b>Indicates the blockchain network where the specified smart contract is already deployed.</li>
+    <li><b>Private Key: </b>Indicates the private key of the account that will be in charge of interact with the smart contract already deployed on the blockchain network.</li>
+    <li><b>Smart Contact ABI: </b>Indicates a smart contract interface required to be able to interact correctly. This allows interacting with the smart contract from outside the network or contract-contract interactions. This ABI can be obtained through compilation using the <code>node-solidity-compiler</code> node.</li>
+    <li><b>Smart Contact Address: </b>Indicates the address of the smart contract that is deployed on the blockchain network and with which you want to interact. This address can be obtained through deployment using the <code>node-solidity-deploy</code> node. </li>
+    <li><b>Function Name: </b>Indicates the name of the smart contract function already deployed in the blockchain network with which you want to interact.</li>
+    <li><b>Output: </b>Result of the smart contract interaction process. If the interaction has been successful, then all details of the completed transaction will be displayed. It is placed on <code>msg.payload</code>.</li>
+  </ul>
+</script>
