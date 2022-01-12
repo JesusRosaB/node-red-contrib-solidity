@@ -75,30 +75,40 @@ module.exports = function(RED) {
                         txstring = txstring + JSONdata[JSONdata.length - 1].value + ')';
                     }
 
-                    const tx = eval(txstring);
+                    if(config.ispurefunction) {
+                        txstring = txstring + '.call()';
+                        try {
+                            const tx = await eval(txstring);
+                            msg.payload = tx;
+                        } catch(error) {
+                            console.error(error);
+                        }
+                    } else {
+                        const tx = eval(txstring);
                     
-                    const gas = await tx.estimateGas({from: address});
-                    const gasPrice = await web3.eth.getGasPrice();
-                    const data = tx.encodeABI();
+                        const gas = await tx.estimateGas({from: address});
+                        const gasPrice = await web3.eth.getGasPrice();
+                        const data = tx.encodeABI();
 
-                    try {
-                        const signedTx = await web3.eth.accounts.signTransaction(
-                        {
-                            to: myContract.options.address, 
-                            data,
-                            gas,
-                            gasPrice,
-                            chainId: networkId
-                        },
-                            privateKey
-                        );
-                        
-                        const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+                        try {
+                            const signedTx = await web3.eth.accounts.signTransaction(
+                            {
+                                to: myContract.options.address, 
+                                data,
+                                gas,
+                                gasPrice,
+                                chainId: networkId
+                            },
+                                privateKey
+                            );
+                            
+                            const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
 
-                        msg.payload = receipt;
-                    } catch(error) {
-                        console.error(error);
-                    }
+                            msg.payload = receipt;
+                        } catch(error) {
+                            console.error(error);
+                        }
+                    }   
 
                     node.send(msg);
                 })

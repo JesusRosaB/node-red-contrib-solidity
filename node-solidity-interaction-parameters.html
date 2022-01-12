@@ -10,6 +10,7 @@
       abi: { value: undefined, required: true },
       scaddress: { value: undefined, required: true },
       scnamefunction: { value: undefined, required: true },
+      ispurefunction: { value: undefined, required: false },
       parametersList: {value: [{}], required: false}
     },
     inputs: 0,
@@ -117,6 +118,11 @@
         <input type="text" id="node-input-scnamefunction" placeholder="Function Name">
     </div>
 
+    <div class="form-row">
+      <label for="node-input-ispurefunction"> Pure Function </label>
+      <input type="checkbox" id="node-input-ispurefunction">
+    </div>
+
     <div class="form-row" style="margin-bottom:0;">
       <label style="width: 200px;"><i class="fa fa-list-alt"></i> Function Parameters </label>
     </div>
@@ -135,6 +141,7 @@
     <li><b>Smart Contact ABI: </b>Indicates a smart contract interface required to be able to interact correctly. This allows interacting with the smart contract from outside the network or contract-contract interactions. This ABI can be obtained through compilation using the <code>node-solidity-compiler</code> node.</li>
     <li><b>Smart Contact Address: </b>Indicates the address of the smart contract that is deployed on the blockchain network and with which you want to interact. This address can be obtained through deployment using the <code>node-solidity-deploy</code> node. </li>
     <li><b>Function Name: </b>Indicates the name of the smart contract function already deployed in the blockchain network with which you want to interact.</li>
+    <li><b>Pure Function: </b>Ensure that the contract function not read or modify the state of the blockchain network.</li>
     <li><b>Function Parameters: </b>Indicates the parameters required to successfully interact with the desired smart contract function. Note that not all smart contract functions need parameters.</li>
     <li><b>Output: </b>Result of the smart contract interaction process. If the interaction has been successful, then all details of the completed transaction will be displayed. It is placed on <code>msg.payload</code>.</li>
   </ul>
