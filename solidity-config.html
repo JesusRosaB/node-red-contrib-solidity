@@ -2,11 +2,12 @@
     RED.nodes.registerType('solidity-config', {
         category: 'config',
         defaults: {
-            network: { value: '' },
-            privatekey: { value: '' }
+            name: { value: undefined, required: false},
+            network: { value: '', required: true },
+            privatekey: { value: '', required: true }
         },
         label: function() {
-            return 'Solidity Config';
+            return this.name || 'Solidity Config';
         },
         oneditprepare: function() {
             // Initialize fields with current values
@@ -17,6 +18,11 @@
 </script>
 
 <script type="text/x-red" data-template-name="solidity-config">
+    <div class="form-row">
+        <label for="node-config-input-name"> Name </label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    
     <div class="form-row">
         <label for="node-config-input-network"><i class="fa fa-plug"></i> Network </label>
         <input type="text" id="node-config-input-network">

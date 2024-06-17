@@ -2,13 +2,13 @@
     RED.nodes.registerType('smartcontract-config',{
         category: 'config',
         defaults: {
-            name: {value: undefined, required: true},
+            name: {value: undefined, required: false},
             bytecode: { value: undefined, required: false },
-            abi: { value: undefined, required: false },
+            abi: { value: undefined, required: true },
             scaddress: { value: undefined, required: false },      
         },
         label: function() {
-            return this.name;
+            return this.name || 'SmartContract Config';
         }
     });
 </script>
