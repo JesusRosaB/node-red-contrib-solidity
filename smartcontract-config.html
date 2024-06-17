@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('smartcontract-config',{
+        category: 'config',
+        defaults: {
+            name: {value: undefined, required: true},
+            bytecode: { value: undefined, required: false },
+            abi: { value: undefined, required: false },
+            scaddress: { value: undefined, required: false },      
+        },
+        label: function() {
+            return this.name;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="smartcontract-config">
+    <div class="form-row">
+        <label for="node-config-input-name"> Name </label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-bytecode"> Bytecode </label>
+        <input type="text" id="node-config-input-bytecode">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-abi"> ABI </label>
+        <input type="text" id="node-config-input-abi">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-scaddress"> Address </label>
+        <input type="text" id="node-config-input-scaddress">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="smartcontract-config">
+    <p> Configuration of the smart contracts. </p>
+    <ul>
+        <li><b>Bytecode: </b>Indicates the compiled code necessary for the correct deployment of the solidity code. It is the hexadecimal representation of the compiled contract to object code. This bytecode can be obtained through compilation using the <code>node-solidity-compiler</code> node.</li>
+        <li><b>ABI: </b>Indicates a smart contract interface required to be able to interact correctly. This allows interacting with the smart contract from outside the network or contract-contract interactions. This ABI can be obtained through compilation using the <code>node-solidity-compiler</code> node.</li>
+        <li><b>Address: </b>Indicates the address of the smart contract that is deployed on the blockchain network and with which you want to interact. This address can be obtained through deployment using the <code>node-solidity-deploy</code> node. </li>
+    </ul>
+</script>

@@ -14,44 +14,17 @@ module.exports = function(RED) {
     let node = this;
 
     try {
-        const privateKey = config.privatekey;    
-        var networkUrlAPI = "";
-
-        switch(config.network){
-            case "ethereum(mainnet)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/eth/mainnet/ws";
-                break;
-            case "ethereum(ropsten)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/eth/ropsten/ws";
-                break;
-            case "ethereum(goerli)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/eth/goerli/ws";
-                break;
-            case "ethereum(rinkeby)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/eth/rinkeby/ws";
-                break;
-            case "ethereum(kovan)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/eth/kovan/ws";
-                break;
-            case "bsc(mainnet)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/bsc/mainnet/archive/ws";
-                break;
-            case "bsc(testnet)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/bsc/testnet/ws";
-                break;
-            case "polygon(mainnet)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/polygon/mainnet/ws";
-                break;
-            case "polygon(mumbai)":
-                networkUrlAPI = "wss://speedy-nodes-nyc.moralis.io/a5dfa04eb13b97d8a8650899/polygon/mumbai/ws";
-                break;
-        }
+        var solidityConfig = RED.nodes.getNode(config.config);
+        var smartContractConfig = RED.nodes.getNode(config.smartcontract);
+        
+        const privateKey = solidityConfig.privatekey;  
+        const networkUrlAPI = solidityConfig.network;
 
         const web3 = new Web3(networkUrlAPI);
 
         const address = web3.eth.accounts.privateKeyToAccount(privateKey).address;
-        const abi = JSON.parse(config.abi);
-        const scaddress = config.scaddress;  
+        const abi = JSON.parse(smartContractConfig.abi);
+        const scaddress = smartContractConfig.scaddress;  
 
         if(config.parametersList.length == 0){
             var txstring = 'myContract.methods.'+ config.scnamefunction + '()';
@@ -88,7 +61,7 @@ module.exports = function(RED) {
                     const tx = eval(txstring);
                 
                     const gas = await tx.estimateGas({from: address});
-                    const gasPrice = await web3.eth.getGasPrice();
+                    const gasPrice = Math.round(await web3.eth.getGasPrice() * 1.101);
                     const data = tx.encodeABI();
 
                     try {

@@ -5,8 +5,6 @@
     color: '#E8E4F3',
     defaults: {
       name: { value: undefined },
-      licenseidentifier: { value: undefined, required: true },
-      pragmasolidity: { value: undefined, required: true }
     },
     inputs: 1,
     outputs: 1,
@@ -42,27 +40,15 @@
     <h4 class="section">General</h4>
 
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name [optional]</label>
+        <label for="node-input-name"> Name [optional] </label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
-    <h4 class="section">Smart Contract</h4>
-    <div class="form-row">
-        <label for="node-input-licenseidentifier"><i class="icon-tag"></i> SPDX License Identifier </label>
-        <input type="text" id="node-input-licenseidentifier" placeholder="Ex: MIT">
-    </div>
-
-    <div class="form-row">
-      <label for="node-input-pragmasolidity"><i class="icon-tag"></i> Pragma Solidity </label>
-      <input type="text" id="node-input-pragmasolidity" placeholder="Ex: pragma solidity >=0.7.0 <0.9.0">
-  </div>
 </script>
 
 <script type="text/html" data-help-name="solidity-compiler">
     <p> Compilation process of the solidity code.</p>
     <ul>
       <li><b>Input: </b>Soldity code to be compiled.</li>
-      <li><b>SPDX License Identifier: </b>Allows developers can specify the license the contract uses. (e.g. OpenZeppelin Contracts use MIT license).</li>
-      <li><b>Pragma Solidity: </b>Indicates that the source file is written for specific versions. For example, for compiler version 0.7.0 and higher up to 0.9.0.</li>
       <li><b>Output: </b>Result of the solidity code compilation process. In case of an error in the compilation, the reasons will be shown. If the compilation has been successful, then detailed information about all the artifacts resulting from the compilation will be displayed. It is placed on <code>msg.payload</code>.</li>
     </ul>
 </script>

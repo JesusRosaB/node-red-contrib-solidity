@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('solidity-config', {
+        category: 'config',
+        defaults: {
+            network: { value: '' },
+            privatekey: { value: '' }
+        },
+        label: function() {
+            return 'Solidity Config';
+        },
+        oneditprepare: function() {
+            // Initialize fields with current values
+            $('#node-config-input-network').val(this.network);
+            $('#node-config-input-privatekey').val(this.privatekey);
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="solidity-config">
+    <div class="form-row">
+        <label for="node-config-input-network"><i class="fa fa-plug"></i> Network </label>
+        <input type="text" id="node-config-input-network">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-config-input-privatekey"><i class="fa fa-key"></i> Private Key </label>
+        <input type="password" id="node-config-input-privatekey">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="solidity-config">
+    <p> Configuration of the user account of the blockchain network. </p>
+    <ul>
+      <li><b>Network: </b>Indicates the blockchain network where the specified smart contract is already deployed.</li>
+      <li><b>Private Key: </b>Indicates the private key of the account that will be in charge of interact with the smart contract already deployed on the blockchain network.</li>
+    </ul>
+</script>

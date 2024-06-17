@@ -5,10 +5,8 @@
     color: '#E8E4F3',
     defaults: {
       name: { value: undefined },
-      network: { value: undefined, required: true },
-      privatekey: { value: undefined, required: true },
-      bytecode: { value: undefined, required: true },
-      abi: { value: undefined, required: true },
+      config: { type: 'solidity-config', required: true },
+      smartcontract: { type: 'smartcontract-config', required: true },
       parametersList: {value: [{}], required: false}
     },
     inputs: 0,
@@ -78,37 +76,17 @@
         <label for="node-input-name"><i class="icon-tag"></i> Name [optional]</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+
+    <div class="form-row">
+    	<label for="node-input-config"> Configuration </label>
+    	<input type="text" id="node-input-config">
+    </div>
     
-    <div class="form-row">
-      <label for="node-input-network"><i class="fa fa-arrows-h"></i> Network </label>
-      <select id="node-input-network">
-        <option value="ethereum(mainnet)">Ethereum (Mainnet)</option>
-        <option value="ethereum(ropsten)">Ethereum (Ropsten)</option>
-        <option value="ethereum(goerli)">Ethereum (Goerli)</option>
-        <option value="ethereum(rinkeby)">Ethereum (Rinkeby)</option>
-        <option value="ethereum(kovan)">Ethereum (Kovan)</option>
-        <option value="bsc(mainnet)">Binance Smart Chain (Mainnet)</option>
-        <option value="bsc(testnet)">Binance Smart Chain (Testnet)</option>
-        <option value="polygon(mainnet)">Polygon (Mainnet)</option>
-        <option value="polygon(mumbai)">Polygon (Mumbai)</option>
-      </select>
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-privatekey"><i class="fa fa-lock"></i> Private Key </label>
-        <input type="password" id="node-input-privatekey" placeholder="privatekey">
-    </div>
-
     <h4 class="section">Smart Contract</h4>
 
     <div class="form-row">
-        <label for="node-input-bytecode"><i class="icon-tag"></i> Bytecode </label>
-        <input type="text" id="node-input-bytecode" placeholder="bytecode">
-    </div>
-
-    <div class="form-row">
-        <label for="node-input-abi"><i class="icon-tag"></i> ABI </label>
-        <input type="text" id="node-input-abi" placeholder="abi">
+    	<label for="node-input-smartcontract"> Smart Contract </label>
+    	<input type="text" id="node-input-smartcontract">
     </div>
 
     <div class="form-row" style="margin-bottom:0;">
@@ -123,10 +101,8 @@
 <script type="text/html" data-help-name="solidity-deploy">
   <p> Deployment process of the solidity code.</p>
   <ul>
-    <li><b>Network: </b>Indicates the blockchain network where the solidity code will be deployed.</li>
-    <li><b>Private Key: </b>Indicates the private key of the account that will be in charge of deploying the smart contract on the blockchain network. This account can be considered the "owner" of the smart contract.</li>
-    <li><b>Bytecode: </b>Indicates the compiled code necessary for the correct deployment of the solidity code. It is the hexadecimal representation of the compiled contract to object code. This bytecode can be obtained through compilation using the <code>node-solidity-compiler</code> node.</li>
-    <li><b>ABI: </b>Indicates a smart contract interface required to be able to deploy it correctly. This allows interacting with the smart contract from outside the network or contract-contract interactions. This ABI can be obtained through compilation using the <code>node-solidity-compiler</code> node</li>
+    <li><b>Configuration:</b> Select the configuration node where the network and private key are specified.</li>
+    <li><b>Smart Contract: </b>Select the smart contract to deploy in the selected network.</li>
     <li><b>Constructor Parameters: </b>Indicates the parameters necessary for the smart contract to be successfully deployed. Note that not all smart contracts have a constructor or do not need parameters.</li>
     <li><b>Output: </b>Result of the solidity code deployment process. If the deployment has been successful, then the address of the smart contract assigned in the blockchain network will be displayed. It is placed on <code>msg.payload</code>.</li>
   </ul>
