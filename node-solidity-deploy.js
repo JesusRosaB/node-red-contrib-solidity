@@ -12,8 +12,9 @@ module.exports = function(RED) {
     RED.nodes.createNode(this, config);
 
     let node = this;
-
-   setTimeout(async () => {
+   
+   try {
+    setTimeout(async () => {
       var solidityConfig = RED.nodes.getNode(config.config);
       var smartContractConfig = RED.nodes.getNode(config.smartcontract);
 
@@ -67,5 +68,9 @@ module.exports = function(RED) {
        msg.payload = contractData;
        node.send(msg);
     });
+   }
+   catch(e) {
+     node.error(e);
+   }
   }
 }
