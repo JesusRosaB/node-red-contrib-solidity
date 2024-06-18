@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('solidity-config', {
+    RED.nodes.registerType('blockchain-config', {
         category: 'config',
         defaults: {
             name: { value: undefined, required: false},
@@ -7,7 +7,7 @@
             privatekey: { value: '', required: true }
         },
         label: function() {
-            return this.name || 'Solidity Config';
+            return this.name || 'Blockchain Config';
         },
         oneditprepare: function() {
             $('#node-config-input-network').val(this.network);
@@ -16,7 +16,7 @@
     });
 </script>
 
-<script type="text/x-red" data-template-name="solidity-config">
+<script type="text/x-red" data-template-name="blockchain-config">
     <div class="form-row">
         <label for="node-config-input-name"> Name </label>
         <input type="text" id="node-config-input-name">
@@ -24,7 +24,7 @@
     
     <div class="form-row">
         <label for="node-config-input-network"><i class="fa fa-plug"></i> Network </label>
-        <input type="text" id="node-config-input-network">
+        <input type="text" id="node-config-input-network" placeholder="https://mainnet.infura.io/v3/API_KEY">
     </div>
     
     <div class="form-row">
@@ -33,10 +33,10 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="solidity-config">
+<script type="text/html" data-help-name="blockchain-config">
     <p> Configuration of the user account of the blockchain network. </p>
     <ul>
-      <li><b>Network: </b>Indicates the blockchain network where the specified smart contract is already deployed.</li>
+      <li><b>Network: </b>Indicates the blockchain network you wish to connect to. To do this, specify the endpoint of the corresponding network, which you can obtain from various providers such as Infura.</li>
       <li><b>Private Key: </b>Indicates the private key of the account that will be in charge of interact with the smart contract already deployed on the blockchain network.</li>
     </ul>
 </script>

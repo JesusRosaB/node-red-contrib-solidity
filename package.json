@@ -10,7 +10,7 @@
   "license": "MIT",
   "node-red": {
     "nodes": {
-      "solidity-config": "solidity-config.js",
+      "blockchain-config": "blockchain-config.js",
       "smartcontract-config": "smartcontract-config.js",
       "node-solidity-compiler": "node-solidity-compiler.js",
       "node-solidity-compiler-from-bpmn": "node-solidity-compiler-from-bpmn.js",
