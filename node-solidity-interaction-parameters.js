@@ -1,9 +1,5 @@
 const Web3 = require("web3");
 
-// --------------------------------------------------------------------------
-//  NODE-RED
-// --------------------------------------------------------------------------
-
 module.exports = function(RED) {
 
   RED.nodes.registerType('solidity-interaction-parameters', SolidityInteractionParameters);

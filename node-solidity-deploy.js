@@ -1,9 +1,5 @@
 var Web3 = require('web3');
 
-// --------------------------------------------------------------------------
-//  NODE-RED
-// --------------------------------------------------------------------------
-
 module.exports = function(RED) {
 
   RED.nodes.registerType('solidity-deploy', DeploySolidity);

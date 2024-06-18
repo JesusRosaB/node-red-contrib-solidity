@@ -1,9 +1,5 @@
 const compiler = require('bpmn-sol');
 
-// --------------------------------------------------------------------------
-//  NODE-RED
-// --------------------------------------------------------------------------
-
 module.exports = function(RED) {
 
   RED.nodes.registerType('solidity-compiler-from-bpmn', CompileBpmnToSolidity);
