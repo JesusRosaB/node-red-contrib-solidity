@@ -1,3 +1,12 @@
+/*
+  ***************************************************************
+  *  node-red-contrib-solidity                                  *
+  *  Jesús Rosa Bilbao (jesus.rosa@uca.es) &                    *
+  *  Juan Boubeta Puig (juan.boubeta@uca.es)                    *
+  *  University of Cadiz                                        *
+  *                                                             *
+  ***************************************************************
+*/
 const solc = require('solc');
 
 module.exports = function(RED) {

@@ -1,3 +1,12 @@
+/*
+  ***************************************************************
+  *  node-red-contrib-solidity                                  *
+  *  Jesús Rosa Bilbao (jesus.rosa@uca.es) &                    *
+  *  Juan Boubeta Puig (juan.boubeta@uca.es)                    *
+  *  University of Cadiz                                        *
+  *                                                             *
+  ***************************************************************
+*/
 module.exports = function(RED) {
   function SmartContractConfigNode(n) {
       RED.nodes.createNode(this,n);
