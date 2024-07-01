@@ -1,21 +1,35 @@
-MIT License
+# Licencia Creative Commons - Reconocimiento – CompartirIgual 4.0 Internacional (CC BY-SA 4.0)
 
-Copyright (c) 2024 JesusRosaB
+Este trabajo está licenciado bajo la Licencia Creative Commons - Reconocimiento – CompartirIgual 4.0 Internacional. Para ver una copia de esta licencia, visita [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Términos de la licencia
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+### Usted es libre de:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- **Compartir** — copiar y redistribuir el material en cualquier medio o formato
+- **Adaptar** — remezclar, transformar y crear a partir del material para cualquier propósito, incluso comercialmente.
+
+### Bajo los siguientes términos:
+
+- **Reconocimiento** — Debe otorgar el crédito adecuado, proporcionar un enlace a la licencia, e indicar si se han realizado cambios. Puede hacerlo de cualquier manera razonable, pero no de manera que sugiera que tiene el apoyo del licenciante o lo recibe por el uso que hace.
+- **CompartirIgual** — Si remezcla, transforma o crea a partir del material, debe distribuir su contribución bajo la misma licencia que el original.
+
+### No hay restricciones adicionales:
+
+- No puede aplicar términos legales ni medidas tecnológicas que legalmente restrinjan realizar aquello que la licencia permite.
+
+## Nota:
+
+Este es un resumen legible por humanos del [texto legal completo](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+
+## Derechos de autor:
+
+- Proyecto: node-red-contrib-solidity
+- Autores: Jesús Rosa Bilbao & Juan Boubeta Puig
+- Año: 2024
+
+Derechos de Autor © 2024 Jesús Rosa Bilbao. Todos los derechos reservados.
+
+## Disclaimer:
+
+No hay garantías. La licencia puede no otorgar todos los permisos necesarios para su uso previsto. Por ejemplo, otros derechos como publicidad, privacidad, o derechos morales pueden limitar cómo usa el material.
