@@ -45,4 +45,4 @@ Below, you can find several simple examples (JSON code of flows). To use it, you
 
 License
 ------
-node-red-contrib-solidity is available under the MIT license. See the [LICENSE](https://github.com/JesusRosaB/node-red-contrib-solidity/blob/main/LICENSE) file for more info.
+node-red-contrib-solidity is available under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) License. See the [LICENSE](https://github.com/JesusRosaB/node-red-contrib-solidity/blob/main/LICENSE) file for more info.
