@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jesus Rosa Bilbao",
-  "license": "MIT",
+  "license": "Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
   "node-red": {
     "nodes": {
       "blockchain-config": "blockchain-config.js",
