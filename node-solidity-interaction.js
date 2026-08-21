@@ -23,7 +23,7 @@ module.exports = function(RED) {
         var smartContractConfig = RED.nodes.getNode(config.smartcontract);
         
         const privateKey = solidityConfig.privatekey;  
-        const networkUrlAPI = solidityConfig.config.network;
+        const networkUrlAPI = solidityConfig.network;
 
         const web3 = new Web3(networkUrlAPI);
 
